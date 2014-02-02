@@ -15,3 +15,4 @@ A simple demo for CenterRelation plug-in. Based on raphael.js and query.js
 >    - ANIMATETIME (number) the time of the start ANIMATE cost. the unit is “ms”
 >    - hrefBase (string) hrefBase + list[i].name is the real url of a rect
 
+![image](https://github.com/huangm-fat/CenterRelation-JS/raw/master/img/CenterRelation-0.png)

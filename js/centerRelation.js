@@ -46,8 +46,8 @@ centerRelation.prototype.paint = function (){
 
 
     var center = _t._insertRect(0,0,_t.centerTEXT)[0];
-    center.glow({'fill': _t._getStyle(center.node, 'fill'),
-                'opcity': 0.8});
+    center.glow({'color': _t._getStyle(center.node, 'fill'),
+                'opacity': 1});
     // IE8不支持forEach
     _t.list.forEach(function (value, index){
         value.num = (this.biggest - value.num) * this.unit + this.smallR;
@@ -112,7 +112,7 @@ centerRelation.prototype._insertRect = function(xd, yd, textContent) {
     var rect, text, path,
         _t = this;
 
-    text = _t.paper.text(_t.centerX, _t.centerY, textContent);
+    text = _t.paper.text(_t.centerX, _t.centerY, textContent).attr('cursor','pointer');
     text.node.setAttribute("class","CR-text")
     console.log(text.node.getAttribute("class"));
 

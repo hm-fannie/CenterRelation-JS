@@ -21,7 +21,7 @@
     - animateTime (number) the time of the start ANIMATE cost. the unit is "ms"
     - hrefBase (string) hrefBase + list[i].name is the real url of a rect, can be null
 \*/
-function centerRelation(centerTEXT, docID, list, width, height, smallR, animation, animateTime, hrefBase) {
+function CenterRelation(centerTEXT, docID, list, width, height, smallR, animation, animateTime, hrefBase) {
     this.centerTEXT = centerTEXT;
     this.doc = document.getElementById(docID);
     this.list = list.concat();
@@ -41,7 +41,7 @@ function centerRelation(centerTEXT, docID, list, width, height, smallR, animatio
     }
     this.paint();
 }
-centerRelation.prototype.paint = function (){
+CenterRelation.prototype.paint = function (){
     var _t = this;
 
 
@@ -69,17 +69,17 @@ centerRelation.prototype.paint = function (){
         this._insertRect(value.xd, value.yd, value.name)
     },_t);
   }
-centerRelation.prototype._ramdomColor = function () {
+CenterRelation.prototype._ramdomColor = function () {
     return "CR-" + String.fromCharCode(Math.floor(Math.random() * 8) + 97);
 }
-centerRelation.prototype._getStyle = function (el, attr){
+CenterRelation.prototype._getStyle = function (el, attr){
   if (window.getComputedStyle){
     return window.getComputedStyle(el)[attr];
   } else if (el.currentStyle) {
     return el.currentStyle[attr];
   } else return null;
 }
-centerRelation.prototype._overlap = function(xd, yd, index){
+CenterRelation.prototype._overlap = function(xd, yd, index){
   var _t = this,
     xUp = xd+90,
     xDown = xd-90,
@@ -97,18 +97,18 @@ centerRelation.prototype._overlap = function(xd, yd, index){
   return re;
 }
 
-centerRelation.prototype._addActive = function(){
+CenterRelation.prototype._addActive = function(){
   for(var i=0;i<arguments.length;i++){
     arguments[i].setAttribute("class",arguments[i].getAttribute("class")+" active");
     console.log(arguments[i].getAttribute("class"))
   }
 }
-centerRelation.prototype._removeActive = function(){
+CenterRelation.prototype._removeActive = function(){
   for(var i=0;i<arguments.length;i++){
     arguments[i].setAttribute("class",arguments[i].getAttribute("class").slice(0,-7));
   }
 }
-centerRelation.prototype._insertRect = function(xd, yd, textContent) {
+CenterRelation.prototype._insertRect = function(xd, yd, textContent) {
     var rect, text, path,
         _t = this;
 
@@ -170,7 +170,7 @@ centerRelation.prototype._insertRect = function(xd, yd, textContent) {
     return rectSet;
 }
 
-centerRelation.prototype._isListValid = function(){
+CenterRelation.prototype._isListValid = function(){
     var smallest = Infinity,
         biggest = -Infinity;
     //IE8不支持every
@@ -197,7 +197,7 @@ centerRelation.prototype._isListValid = function(){
 }
 
 
-centerRelation.prototype._isParamValid = function(){
+CenterRelation.prototype._isParamValid = function(){
   var _t = this;
   if (typeof _t.centerTEXT !== "string"){
     _t.wrongInfo = "centerTEXT must be a string";
